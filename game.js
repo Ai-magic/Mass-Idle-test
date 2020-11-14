@@ -16,6 +16,7 @@ var deno={
 }
 if(save!=null){
     player=save
+    player.mass=new Decimal(parseFloat(player.mass))
     if(offlineProgress!=null){
         player.mass=Decimal.mul(Decimal.div(Decimal.mul(player.mN1,player.mT1),1000),Decimal.minus(time,offlineProgress))
     }
