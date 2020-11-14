@@ -2,10 +2,6 @@ var save=JSON.parse(localStorage.getItem('massSave'))
 var offlineProgress=JSON.parse(localStorage.getItem('massSaveProgress'))
 var player={
     mass:new Decimal(12),
-    hardReset: ()=>{
-        localStorage.clear()
-        location.reload()
-    },
     mC1:10,
     mN1:0,
     mT1:1,
