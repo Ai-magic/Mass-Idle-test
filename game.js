@@ -22,7 +22,7 @@ if(save!=null){
         player.mass=Decimal.mul(Decimal.div(Decimal.mul(player.mN1,player.mT1),1000),Decimal.minus(time,offlineProgress))
     }
 }
-const hardReset= ()=>{
+function hardReset(){
     localStorage.clear()
     location.reload()
 }
@@ -32,7 +32,7 @@ function buyM1(){
         player.mC1=Decimal.plus(Decimal.mul(player.mC1,2),Decimal.floor(Decimal.log10(player.mC1)),player.mC1)
         player.mN1=Decimal.plus(player.mN1,1)
         if(player.mN1%2===0){
-            player.mT1=player.mT1*2
+            player.mT1=player.mT1*(2**Decimal.floor(Decimal.log10(player.mass)))
         }    
     }else{
         return "no"
