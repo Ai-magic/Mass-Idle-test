@@ -16,6 +16,7 @@ var deno={
 }
 if(save!=null){
     player=save
+    console.log(save,player)
     player.mass=new Decimal(parseFloat(player.mass))
     if(offlineProgress!=null){
         player.mass=Decimal.mul(Decimal.div(Decimal.mul(player.mN1,player.mT1),1000),Decimal.minus(time,offlineProgress))
@@ -34,7 +35,9 @@ function buyM1(){
             player.mT1=player.mT1*2
         }    
     }else{
+        return "no"
     }
+    return "no"
 }
 var update=setInterval(function(){
     player.mass=Decimal.plus(player.mass,Decimal.div(Decimal.mul(player.mN1,player.mT1),100))
@@ -54,4 +57,7 @@ var update=setInterval(function(){
     localStorage.setItem('massSave',JSON.stringify(player))
     localStorage.setItem('massSaveProgress',JSON.stringify(new Date().getTime()))
     time=new Date().getTime()
+    if(time!=parseInt(localStorage.getItem('massSaveProgress'))){
+        player.mass=Decimal.mul(Decimal.div(Decimal.mul(player.mN1,player.mT1),1000),Decimal.minus(time,offlineProgress))
+    }
 },10)
