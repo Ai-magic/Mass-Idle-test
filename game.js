@@ -1,4 +1,5 @@
 var save=JSON.parse(localStorage.getItem('massSaveTest'))
+var offlineProgress=JSON.parse(localStorage.getItem('massSaveProgress'))
 var player={
     mass:new Decimal(12),
     mC1:10,
@@ -12,8 +13,12 @@ var deno={
     k:" kilogram",
     t:" tonne"
 }
+var time=new Date().getTime()
 if(save!=null){
     player=save
+    if(offlineProgress!=null){
+        player.mass=Decimal.mul(Decimal.div(Decimal.mul(mN1,mT1), 1000),Decimal.minus(time,offlineProgress))
+    }
 }
 const hardReset= ()=>{
     localStorage.clear()
@@ -48,4 +53,5 @@ var update=setInterval(function(){
     document.getElementById('mC1').textContent="Cost: "+player.mC1
     document.getElementById('ps').textContent=Decimal.mul(player.mN1,player.mT1)+deno.a
     localStorage.setItem('massSaveTest',JSON.stringify(player))
+    localStorage.setItem('massSaveProgress',JSON.stringify(new Date().getTime()))
 },10)
