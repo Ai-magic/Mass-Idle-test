@@ -1,4 +1,4 @@
-var save=JSON.parse(localStorage.getItem('massSave'))
+var save=JSON.parse(localStorage.getItem('massSaveTest'))
 var player={
     mass:new Decimal(12),
     hardReset: ()=>{
@@ -47,5 +47,5 @@ var update=setInterval(function(){
     document.getElementById("mT1").textContent=player.mT1+"x"
     document.getElementById('mC1').textContent="Cost: "+player.mC1
     document.getElementById('ps').textContent=Decimal.mul(player.mN1,player.mT1)+deno.a
-    localStorage.setItem('massSave',JSON.stringify(player))
+    localStorage.setItem('massSaveTest',JSON.stringify(player))
 },10)
