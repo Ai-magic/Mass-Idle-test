@@ -53,4 +53,5 @@ var update=setInterval(function(){
     document.getElementById('ps').textContent=Decimal.mul(player.mN1,player.mT1)+deno.a
     localStorage.setItem('massSave',JSON.stringify(player))
     localStorage.setItem('massSaveProgress',JSON.stringify(new Date().getTime()))
+    time=new Date().getTime()
 },10)
