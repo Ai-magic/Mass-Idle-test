@@ -1,10 +1,6 @@
 var save=JSON.parse(localStorage.getItem('massSaveTest'))
 var player={
     mass:new Decimal(12),
-    hardReset: ()=>{
-        localStorage.clear()
-        location.reload()
-    },
     mC1:10,
     mN1:0,
     mT1:1,
@@ -18,6 +14,10 @@ var deno={
 }
 if(save!=null){
     player=save
+}
+const hardReset= ()=>{
+    localStorage.clear()
+    location.reload()
 }
 function buyM1(){
     if(player.mass.gte(player.mC1) && (player.mass.minus(player.mC1)).gte(2)){
