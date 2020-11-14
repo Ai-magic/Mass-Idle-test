@@ -1,0 +1,17 @@
+@font-face {
+    font-family: Typewriter;
+    src: url('MonospaceTypewriter.ttf');
+}
+body{
+    font-family: Typewriter;
+}
+td{
+    text-align: left;
+}
+table{
+    margin-right: 0px;
+}
+button{
+    background-color: #fff;
+    font-family: Typewriter;
+}
