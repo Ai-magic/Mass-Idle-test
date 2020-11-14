@@ -17,7 +17,7 @@ var deno={
 if(save!=null){
     player=save
     if(offlineProgress!=null){
-        player.mass=Decimal.mul(Decimal.div(Decimal.mul(mN1,mT1), 1000),Decimal.minus(time,offlineProgress))
+        player.mass=Decimal.mul(Decimal.div(Decimal.mul(player.mN1,player.mT1),1000),Decimal.minus(time,offlineProgress))
     }
 }
 const hardReset= ()=>{
